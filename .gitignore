@@ -43,3 +43,5 @@ Thumbs.db
 
 # Netlify
 .netlify
+
+# NOTE: Images are NOT ignored - they should be committed
