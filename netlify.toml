@@ -1,8 +1,10 @@
+# Netlify deployment configuration
+# Publish directory set to "dist" to match Vite's default build output
 [build]
   command = "npm run build"
-  publish = "build"
+  publish = "dist"
 
-# Redirect all traffic to index.html for SPA routing
+# SPA routing - redirect all requests to index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
