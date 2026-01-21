@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, Phone, Instagram, Send, MessageCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -8,8 +9,22 @@ export function Contact() {
     phone: '',
     date: '',
     occasion: '',
+    venue: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    try {
+      // Initialize EmailJS
+      emailjs.init('ExYhJYtRqLD-zMdJh');
+      console.log('EmailJS initialized successfully');
+    } catch (error) {
+      console.error('EmailJS initialization failed:', error);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -18,10 +33,56 @@ export function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    console.log('Submitting form with data:', formData);
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        date: formData.date || 'Not specified',
+        occasion: formData.occasion,
+        venue: formData.venue || 'Not specified',
+        message: formData.message || 'No additional message',
+        reply_to: formData.email
+      };
+
+      console.log('Sending email with params:', templateParams);
+
+      const result = await emailjs.send(
+        'service_3jc9owi',
+        'template_1ulnsbh',
+        templateParams
+      );
+
+      console.log('Email sent successfully:', result);
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        date: '',
+        occasion: '',
+        venue: '',
+        message: ''
+      });
+
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error: any) {
+      console.error('Failed to send email - Full error:', error);
+      console.error('Error text:', error?.text);
+      console.error('Error status:', error?.status);
+      setSubmitStatus('error');
+      setErrorMessage(error?.text || error?.message || 'Unknown error occurred');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -148,7 +209,7 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="date" className="block text-sm mb-2 text-[var(--champagne-gold)]">Preferred Date</label>
+                <label htmlFor="date" className="block text-sm mb-2 text-[var(--champagne-gold)]">Occasion Date</label>
                 <input
                   type="date"
                   id="date"
@@ -173,10 +234,23 @@ export function Contact() {
                   <option value="bridal">Bridal Makeup</option>
                   <option value="engagement">Engagement</option>
                   <option value="party">Party/Event</option>
-                  <option value="photoshoot">Photoshoot</option>
+                  <option value="Sider Makeup">Sider Makeup</option>
                   <option value="festival">Festival/Occasion</option>
                   <option value="other">Other</option>
                 </select>
+              </div>
+
+              <div>
+                <label htmlFor="venue" className="block text-sm mb-2 text-[var(--champagne-gold)]">Venue / Location</label>
+                <input
+                  type="text"
+                  id="venue"
+                  name="venue"
+                  value={formData.venue}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-[var(--obsidian-black)] border-2 border-[var(--royal-gold)]/30 rounded-lg focus:outline-none focus:border-[var(--royal-gold)] transition-colors duration-300 text-[var(--velvet-ivory)]"
+                  placeholder="Event location or your address"
+                />
               </div>
 
               <div>
@@ -188,17 +262,30 @@ export function Contact() {
                   onChange={handleChange}
                   rows={4}
                   className="w-full px-4 py-3 bg-[var(--obsidian-black)] border-2 border-[var(--royal-gold)]/30 rounded-lg focus:outline-none focus:border-[var(--royal-gold)] transition-colors duration-300 resize-none text-[var(--velvet-ivory)]"
-                  placeholder="Tell us about your vision..."
+                  placeholder="Please provide the detailed schedule for all the events, including dates and timings"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-[var(--royal-gold)] to-[var(--burnished-gold)] text-[var(--obsidian-black)] rounded-lg hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-300 transform hover:scale-105 font-semibold"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-[var(--royal-gold)] to-[var(--burnished-gold)] text-[var(--obsidian-black)] rounded-lg hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-300 transform hover:scale-105 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-5 h-5" />
-                Send Inquiry
+                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
               </button>
+
+              {submitStatus === 'success' && (
+                <p className="text-green-400 text-center mt-4">✨ Message sent successfully! We'll get back to you soon.</p>
+              )}
+              {submitStatus === 'error' && (
+                <div className="text-red-400 text-center mt-4">
+                  <p>❌ Failed to send message. Please try WhatsApp or Instagram.</p>
+                  {errorMessage && (
+                    <p className="text-sm mt-2 text-red-300">Error: {errorMessage}</p>
+                  )}
+                </div>
+              )}
             </form>
           </div>
         </div>
