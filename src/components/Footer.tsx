@@ -97,6 +97,10 @@ export function Footer() {
           <p className="text-[var(--mink-taupe)] text-xs mt-2">
             Crafted with love for beauty and artistry
           </p>
+          <p className="text-[var(--mink-taupe)] text-xs mt-2">
+            Developed with ✨ by{' '}
+            <span className="text-[var(--royal-gold)] font-semibold">Harsh Mangal</span>
+          </p>
         </div>
       </div>
     </footer>

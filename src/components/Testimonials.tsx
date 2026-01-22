@@ -7,63 +7,63 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      name: 'Vidhichouhan_234 From PratapGarh',
+      name: 'Vidhi chouhan, Pratapgarh',
       occasion: 'Bridal Makeup',
       rating: 5,
       text: 'Boht pyare lage sare ke sare mkup thanku so much archi ji jesa mene socha tha vesa hi mera mkup huwa he. Or sbse jyada acha to mko apke nature lga jitna softly ap bat krte ho smjate ho samne wale ki tension to uhi km ho jati h. You were my most fav bride.',
       image: 'https://images.unsplash.com/photo-1722340321190-1c7b7384e89b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkYWwlMjBtYWtldXAlMjBlbGVnYW50fGVufDF8fHx8MTc2NTA4MjM4N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Khushboo Patidar From Mumbai ',
+      name: 'Khushboo Patidar, Mumbai',
       occasion: 'Bridal Makeup',
       rating: 5,
       text: 'Thank you Archi, for your incredible support and amazing makeup skills. You are not just a great makeup artist but also a very supportive person in every situation. You made all my days so special and gave me so much confidence. I\'m truly grateful for everything!',
       image: 'https://images.unsplash.com/photo-1762074973099-78f2169c9177?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtb3JvdXMlMjBwYXJ0eSUyMG1ha2V1cHxlbnwxfHx8fDE3NjUwOTM0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Shikha Sharma From Mandsaur',
+      name: 'Shikha Sharma, Mandsaur',
       occasion: 'Bridal Makeup',
       rating: 5,
       text: 'HI Archi, you did an absolutely amazing job! From the consultation to the final look, you truly listened to what I wanted and executed it perfectly. Your attention to detail, professionalism, and skill were top-notch. My makeup lasted all day and looked flawless in every photo. I felt confident and beautiful, and I can\'t recommend you enough!',
       image: 'https://images.unsplash.com/photo-1738684033377-eb02299c1d6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0JTIwZ2xhbSUyMG1ha2V1cCUyMG5hdHVyYWx8ZW58MXx8fHwxNzY1MDkzNDczfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Charmi Jain From Indore',
+      name: 'Charmi Jain, Indore',
       occasion: 'Wedding Functions',
       rating: 5,
       text: 'Hey Archie! Firstly, a big big thank you for making me feel like the most beautiful version of myself on all my wedding functions! Each and every makeup look was honestly so on point – from the subtle glam to the full bridal look, everything was exactly how I had imagined (maybe even better). You really understood my vibe and made sure I was comfortable throughout. Everyone kept complimenting the looks – especially my bridal day look! I got so many "wow you look stunning" and "who\'s your makeup artist?" comments. More than just the makeup, I really appreciated your calm and positive energy. It helped me stay relaxed during the chaos. You were punctual, professional, yet so friendly – it felt like having a friend around. Thank you for being such an important part of my big day. I\'m honestly so happy I chose you! Would 1000% recommend you to every bride-to-be!',
       image: 'https://images.unsplash.com/photo-1553540751-988bd7918c7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwbWFrZXVwJTIwYnJpZGV8ZW58MXx8fHwxNzY1MDM1NzQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Ayushi Songara From Mandsaur',
+      name: 'Ayushi Songara, Mandsaur',
       occasion: 'Wedding Makeup',
       rating: 5,
       text: 'Such a lovely experience thankyou archi di for this stunning flawless and gorgeous makeup and not only that, but also for taking care of me and me and my family is so impressed by your sweet and caring nature, you made feel special in every way.',
       image: 'https://images.unsplash.com/photo-1585261940669-fc2a2e770ad3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleWUlMjBtYWtldXAlMjBjbG9zZXVwfGVufDF8fHx8MTc2NTA5MzQ3Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Shruti Sharma From Mandsaur',
+      name: 'Shruti Sharma, Mandsaur',
       occasion: 'Bridal Makeup',
       rating: 5,
       text: 'Sorry for telling you a little late, but Archi, you are truly the best. I really loved your makeup. It looked completely natural and suited me perfectly. The pheras look was the best of all. My entire family praised the makeup a lot. Thank you so much!',
       image: 'https://images.unsplash.com/photo-1653221876213-2c765b7ade25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtYWtldXAlMjBnbGFtb3JvdXMlMjB3b21hbnxlbnwxfHx8fDE3NjUwOTM0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Nilam Porwal From Jaora',
+      name: 'Nilam Porwal, Jaora',
       occasion: 'Special Occasion',
       rating: 5,
       text: 'Thank you so much for the gorgeous makeup look, you really made my day. Seriously, thank you for the amazing makeup, it\'s stunning and you totally brightened my day. "I\'m so grateful for this gorgeous look, you absolutely made my day Thanks again.',
       image: 'https://images.unsplash.com/photo-1722340321190-1c7b7384e89b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkYWwlMjBtYWtldXAlMjBlbGVnYW50fGVufDF8fHx8MTc2NTA4MjM4N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Diksha Nanore From Indore',
+      name: 'Diksha Nanore, Indore',
       occasion: 'Makeup Session',
       rating: 5,
       text: 'Thankyou Archi ❤️ You\'re brilliant at what you do. All the makeup looks were totally amazing and breathtaking ❤️',
       image: 'https://images.unsplash.com/photo-1762074973099-78f2169c9177?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtb3JvdXMlMjBwYXJ0eSUyMG1ha2V1cHxlbnwxfHx8fDE3NjUwOTM0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Mahisoni_23 From Agar',
+      name: 'Mahi soni, Agar',
       occasion: 'Special Day',
       rating: 5,
       text: 'It was absolutely best day of my life, thank you so so so much for making me feel beautiful for the first time in my life! You honestly surpassed any of my dreams of how I\'d look. Thank you! 💋🥰',
