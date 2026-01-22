@@ -78,16 +78,17 @@ export function Location() {
 
           {/* Map Placeholder */}
           <div className="space-y-4">
-            <div className="rounded-lg overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.3)] h-[400px] border-2 border-[var(--royal-gold)]/30">
+            <div className="rounded-lg overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.3)] h-[400px] border-2 border-[var(--royal-gold)]/30 bg-[var(--obsidian-black)]">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!4v1769010219541!6m8!1m7!1sFqLIrW2bMXpANMjl60P7Kg!2m2!1d24.20965533870717!2d75.00986444791187!3f185.31496044058423!4f0!5f0.7820865974627469" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.2647890547756!2d75.00764731496584!3d24.209655384405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDEyJzM0LjgiTiA3NcKwMDAnMzUuNSJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
                 width="100%" 
                 height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
+                frameBorder="0"
+                allowFullScreen={true}
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Studio Location Map"
+                className="w-full h-full"
               ></iframe>
             </div>
             <a 
