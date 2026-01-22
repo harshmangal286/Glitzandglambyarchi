@@ -195,6 +195,29 @@ export function Contact() {
               </div>
 
               <div>
+                <label htmlFor="service" className="block text-sm mb-2 text-[var(--champagne-gold)]">Select Service *</label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-[var(--obsidian-black)] border-2 border-[var(--royal-gold)]/30 rounded-lg focus:outline-none focus:border-[var(--royal-gold)] transition-colors duration-300 text-[var(--velvet-ivory)]"
+                >
+                  <option value="">Select service</option>
+                  <option value="Bridal Wedding Makeup">Bridal Wedding Makeup</option>
+                  <option value="Engagement & Pre-Wedding Glam">Engagement & Pre-Wedding Glam</option>
+                  <option value="Party & Event Makeup">Party & Event Makeup</option>
+                  <option value="Soft Glam / Natural Makeup">Soft Glam / Natural Makeup</option>
+                  <option value="Full Glam Transformations">Full Glam Transformations</option>
+                  <option value="Eye Makeup Specialization">Eye Makeup Specialization</option>
+                  <option value="Model / Photoshoot Makeup">Model / Photoshoot Makeup</option>
+                  <option value="Festival & Occasion Makeup">Festival & Occasion Makeup</option>
+                  <option value="Hairstyling Services">Hairstyling Services</option>
+                </select>
+              </div>
+
+              <div>
                 <label htmlFor="phone" className="block text-sm mb-2 text-[var(--champagne-gold)]">Phone Number *</label>
                 <input
                   type="tel"

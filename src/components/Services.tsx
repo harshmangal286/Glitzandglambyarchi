@@ -3,7 +3,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
 
 export function Services() {
-  const scrollToContact = () => {
+  const scrollToContact = (serviceTitle: string) => {
     const element = document.getElementById('contact');
     if (element) {
       const offset = 80;
@@ -14,6 +14,15 @@ export function Services() {
         top: offsetPosition,
         behavior: 'smooth'
       });
+
+      // Set the service in the form after a small delay to ensure form is visible
+      setTimeout(() => {
+        const serviceSelect = document.getElementById('service') as HTMLSelectElement;
+        if (serviceSelect) {
+          serviceSelect.value = serviceTitle;
+          serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }, 500);
     }
   };
 
@@ -169,7 +178,7 @@ export function Services() {
                 </p>
                 
                 <motion.button 
-                  onClick={scrollToContact}
+                  onClick={() => scrollToContact(service.title)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full py-3 border-2 border-[var(--royal-gold)] text-[var(--royal-gold)] rounded-lg hover:bg-[var(--royal-gold)] hover:text-[var(--obsidian-black)] transition-all duration-300 font-semibold"
