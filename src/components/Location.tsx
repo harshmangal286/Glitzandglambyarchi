@@ -80,7 +80,7 @@ export function Location() {
           <div className="space-y-4">
             <div className="rounded-lg overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.3)] h-[400px] border-2 border-[var(--royal-gold)]/30 bg-[var(--obsidian-black)]">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.2647890547756!2d75.00764731496584!3d24.209655384405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDEyJzM0LjgiTiA3NcKwMDAnMzUuNSJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!4v1769058045208!6m8!1m7!1sFqLIrW2bMXpANMjl60P7Kg!2m2!1d24.20965533870717!2d75.00986444791187!3f231.64370229219716!4f-6.159343600773624!5f0.7820865974627469"
                 width="100%" 
                 height="100%" 
                 frameBorder="0"
@@ -92,7 +92,7 @@ export function Location() {
               ></iframe>
             </div>
             <a 
-              href="https://maps.app.goo.gl/EruRECWYmQh3eXZ58" 
+              href="https://maps.app.goo.gl/YC4Kc2VhBxKigHeb7" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 py-3 px-6 bg-[var(--jet-black)] text-[var(--royal-gold)] rounded-lg border-2 border-[var(--royal-gold)]/30 hover:border-[var(--royal-gold)] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 font-semibold"
