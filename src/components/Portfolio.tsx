@@ -8,7 +8,7 @@ export function Portfolio() {
 
   const allImages = [
     {
-      src: "/b1.jpeg",
+      src: "/b1.PNG",
       alt: "Elegant bridal makeup",
       category: 'bridal'
     },
@@ -23,25 +23,24 @@ export function Portfolio() {
       category: 'bridal'
     },
     {
-      src: "/b4.jpeg",
+      src: "/b4.PNG",
       alt: "Beautiful bridal look",
       category: 'bridal'
     },
     {
-      src: "/b5.jpeg",
+      src: "/b5.PNG",
       alt: "Glamorous bridal makeup",
       category: 'bridal'
     },
     {
-      src: "/b6.jpeg",
+      src: "/b6.PNG",
       alt: "Traditional bridal makeup",
       category: 'bridal'
     }
   ];
 
   const categories = [
-    { id: 'all', label: 'All Work' },
-    { id: 'bridal', label: 'Bridal' }
+    { id: 'all', label: 'All Work' }
   ];
 
   const filteredImages = activeFilter === 'all' 

@@ -36,14 +36,6 @@ export function Services() {
       glowColor: 'rgba(212,175,55,0.12)'
     },
     {
-      icon: Sparkles,
-      title: 'Engagement & Pre-Wedding Glam',
-      description: 'Glamorous makeup for your engagement and pre-wedding photoshoots.',
-      price: 'Starting from ₹8,000',
-      bgImage: 'https://images.unsplash.com/photo-1633443362894-227325b61ddf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtb3JvdXMlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2Nzk3MzE0NXww&ixlib=rb-4.1.0&q=80&w=1080',
-      glowColor: 'rgba(238,217,182,0.10)'
-    },
-    {
       icon: PartyPopper,
       title: 'Party & Event Makeup',
       description: 'Stand out at every celebration with stunning, long-lasting makeup.',
@@ -53,31 +45,19 @@ export function Services() {
     },
     {
       icon: Palette,
-      title: 'Soft Glam / Natural Makeup',
+      title: 'Soft Glam Makeup',
       description: 'Enhance your natural beauty with subtle, elegant looks.',
+      price: 'Starting from ₹5,000',
       bgImage: 'https://images.unsplash.com/photo-1761084490272-c81f4ededf54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtYWtldXAlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc5NzMxNDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
       glowColor: 'rgba(212,175,55,0.10)'
     },
     {
-      icon: Sparkles,
-      title: 'Full Glam Transformations',
-      description: 'Bold, dramatic, and show-stopping makeup for any occasion.',
-      bgImage: 'https://images.unsplash.com/photo-1646770267004-c1f630da05b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnb2xkJTIwbWFrZXVwJTIwZ2xpdHRlcnxlbnwxfHx8fDE3Njc5NzMxNDZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      glowColor: 'rgba(238,217,182,0.12)'
-    },
-    {
       icon: Eye,
-      title: 'Eye Makeup Specialization',
-      description: 'Intricate eye artistry including cut crease, smoky eyes, and more.',
+      title: 'Signature Bridal OG Glam',
+      description: 'Curated with Glitz & Glam\'s expertise  in flawless HD glamour looks.',
+      price: 'Starting from ₹15,000',
       bgImage: 'https://images.unsplash.com/photo-1583012279653-1575246476c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjBleWVzaGFkb3clMjBwYWxldHRlfGVufDF8fHx8MTc2Nzk3MzE0NXww&ixlib=rb-4.1.0&q=80&w=1080',
       glowColor: 'rgba(182,141,64,0.10)'
-    },
-    {
-      icon: Camera,
-      title: 'Model / Photoshoot Makeup',
-      description: 'High-definition, camera-ready makeup for professional shoots.',
-      bgImage: 'https://images.unsplash.com/photo-1600637070413-0798fafbb6c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYWtldXAlMjBhcnRpc3R8ZW58MXx8fHwxNzY3OTcxMTE1fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      glowColor: 'rgba(212,175,55,0.12)'
     },
     {
       icon: Calendar,
@@ -88,12 +68,12 @@ export function Services() {
       glowColor: 'rgba(238,217,182,0.10)'
     },
     {
-      icon: Scissors,
-      title: 'Hairstyling Services',
-      description: 'Complete your look with professional hairstyling services.',
-    
+      icon: Sparkles,
+      title: 'Engagement & Pre-Wedding Glam',
+      description: 'Glamorous makeup for your engagement and pre-wedding photoshoots.',
+      price: 'Starting from ₹8,000',
       bgImage: 'https://images.unsplash.com/photo-1633443362894-227325b61ddf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtb3JvdXMlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2Nzk3MzE0NXww&ixlib=rb-4.1.0&q=80&w=1080',
-      glowColor: 'rgba(182,141,64,0.12)'
+      glowColor: 'rgba(238,217,182,0.10)'
     }
   ];
 
@@ -173,9 +153,11 @@ export function Services() {
                 <p className="text-[var(--velvet-ivory)] mb-4 leading-relaxed">
                   {service.description}
                 </p>
-                <p className="text-[var(--royal-gold)] mb-5 font-semibold">
-                  {service.price}
-                </p>
+                {service.price && (
+                  <p className="text-[var(--royal-gold)] mb-5 font-semibold">
+                    {service.price}
+                  </p>
+                )}
                 
                 <motion.button 
                   onClick={() => scrollToContact(service.title)}

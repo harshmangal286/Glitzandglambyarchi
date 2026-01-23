@@ -80,7 +80,7 @@ export function Location() {
           <div className="space-y-4">
             <div className="rounded-lg overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.3)] h-[400px] border-2 border-[var(--royal-gold)]/30 bg-[var(--obsidian-black)]">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!4v1769058045208!6m8!1m7!1sFqLIrW2bMXpANMjl60P7Kg!2m2!1d24.20965533870717!2d75.00986444791187!3f231.64370229219716!4f-6.159343600773624!5f0.7820865974627469"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3638.9372500029267!2d75.00837702535019!3d24.208977178360307!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3965d5eda3888561%3A0x28679eef420aea33!2sTouch%20and%20Glow%20beauty%20salon!5e0!3m2!1sen!2sin!4v1769105549010!5m2!1sen!2sin"
                 width="100%" 
                 height="100%" 
                 frameBorder="0"
@@ -101,6 +101,14 @@ export function Location() {
               Open in Google Maps
             </a>
           </div>
+        </div>
+
+        {/* Developer Credit */}
+        <div className="text-center mt-16 pt-8 border-t border-[var(--royal-gold)]/20">
+          <p className="text-sm text-[var(--champagne-gold)]/60">
+            Developed with ✨ by{' '}
+            <span className="text-[var(--royal-gold)] font-semibold">Harsh Mangal</span>
+          </p>
         </div>
       </div>
     </section>

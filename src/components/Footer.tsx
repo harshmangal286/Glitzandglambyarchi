@@ -18,7 +18,7 @@ export function Footer() {
   return (
     <footer className="bg-[var(--jet-black)] text-[var(--velvet-ivory)] py-12 border-t border-[var(--royal-gold)]/30">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8 mb-10">
+        <div className="grid md:grid-cols-3 gap-8 mb-10">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
@@ -54,18 +54,6 @@ export function Footer() {
                 <Youtube className="w-5 h-5 text-[var(--obsidian-black)]" />
               </a>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h5 className="mb-4">Quick Links</h5>
-            <ul className="space-y-2">
-              <li><button onClick={() => scrollToSection('about')} className="text-[var(--champagne-gold)] hover:text-[var(--royal-gold)] transition-colors">About</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="text-[var(--champagne-gold)] hover:text-[var(--royal-gold)] transition-colors">Services</button></li>
-              <li><button onClick={() => scrollToSection('portfolio')} className="text-[var(--champagne-gold)] hover:text-[var(--royal-gold)] transition-colors">Portfolio</button></li>
-              <li><button onClick={() => scrollToSection('testimonials')} className="text-[var(--champagne-gold)] hover:text-[var(--royal-gold)] transition-colors">Testimonials</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="text-[var(--champagne-gold)] hover:text-[var(--royal-gold)] transition-colors">Contact</button></li>
-            </ul>
           </div>
 
           {/* Contact Info */}

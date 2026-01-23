@@ -7,7 +7,7 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      name: 'Vidhi chouhan, Pratapgarh',
+      name: 'Vidhi Chouhan, Pratapgarh',
       occasion: 'Bridal Makeup',
       rating: 5,
       text: 'Boht pyare lage sare ke sare mkup thanku so much archi ji jesa mene socha tha vesa hi mera mkup huwa he. Or sbse jyada acha to mko apke nature lga jitna softly ap bat krte ho smjate ho samne wale ki tension to uhi km ho jati h. You were my most fav bride.',
@@ -63,7 +63,7 @@ export function Testimonials() {
       image: 'https://images.unsplash.com/photo-1762074973099-78f2169c9177?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtb3JvdXMlMjBwYXJ0eSUyMG1ha2V1cHxlbnwxfHx8fDE3NjUwOTM0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      name: 'Mahi soni, Agar',
+      name: 'Mahi Soni, Agar',
       occasion: 'Special Day',
       rating: 5,
       text: 'It was absolutely best day of my life, thank you so so so much for making me feel beautiful for the first time in my life! You honestly surpassed any of my dreams of how I\'d look. Thank you! 💋🥰',
