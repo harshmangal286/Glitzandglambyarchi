@@ -130,7 +130,7 @@ export function About() {
           </div>
 
           {/* Features */}
-          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
             {features.map((feature, index) => (
               <div key={index} className="bg-[var(--obsidian-black)]/40 border border-[var(--royal-gold)]/20 rounded-lg p-6 text-center shadow-[0_0_20px_rgba(212,175,55,0.2)]">
                 <div className="flex justify-center mb-4">

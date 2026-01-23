@@ -92,7 +92,7 @@ export function Location() {
               ></iframe>
             </div>
             <a 
-              href="https://maps.app.goo.gl/YC4Kc2VhBxKigHeb7" 
+              href="https://maps.app.goo.gl/nVbHQ5psmEENkjNy9" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 py-3 px-6 bg-[var(--jet-black)] text-[var(--royal-gold)] rounded-lg border-2 border-[var(--royal-gold)]/30 hover:border-[var(--royal-gold)] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 font-semibold"
@@ -103,13 +103,7 @@ export function Location() {
           </div>
         </div>
 
-        {/* Developer Credit */}
-        <div className="text-center mt-16 pt-8 border-t border-[var(--royal-gold)]/20">
-          <p className="text-sm text-[var(--champagne-gold)]/60">
-            Developed with ✨ by{' '}
-            <span className="text-[var(--royal-gold)] font-semibold">Harsh Mangal</span>
-          </p>
-        </div>
+      
       </div>
     </section>
   );
