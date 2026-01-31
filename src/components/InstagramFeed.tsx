@@ -35,7 +35,7 @@ export function InstagramFeed() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Instagram className="w-8 h-8 text-[var(--royal-gold)]" />
-            <h2>Follow @glitzandglam_by_archi</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl break-words">Follow @glitzandglam_by_archi</h2>
           </div>
           <p className="text-xl text-[var(--champagne-gold)] max-w-2xl mx-auto">
             Stay updated with our latest looks and transformations

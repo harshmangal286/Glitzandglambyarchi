@@ -103,7 +103,12 @@ export function Location() {
           </div>
         </div>
 
-      
+        {/* Social Media Section */}
+        <div className="mt-16 text-center">
+          <h2 className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl break-words px-4">
+            Follow @glitzandglam_by_archi
+          </h2>
+        </div>
       </div>
     </section>
   );
