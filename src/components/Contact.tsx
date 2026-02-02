@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 import { Mail, Phone, Instagram, Send, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
+// Declare grecaptcha for TypeScript
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -39,6 +46,82 @@ export function Contact() {
     setSubmitStatus('idle');
     setErrorMessage('');
 
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus('error');
+      setErrorMessage('Please enter a valid email address.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Indian phone number validation (10 digits starting with 6-9)
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (!/^[6-9]\d{9}$/.test(phoneDigits)) {
+      setSubmitStatus('error');
+      setErrorMessage('Please enter a valid 10-digit Indian phone number starting with 6-9.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Date validation (if provided)
+    if (formData.date) {
+      const selectedDate = new Date(formData.date);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const oneYearAhead = new Date();
+      oneYearAhead.setFullYear(today.getFullYear() + 1);
+
+      if (selectedDate < today || selectedDate > oneYearAhead) {
+        setSubmitStatus('error');
+        setErrorMessage('Please select a booking date between today and one year ahead.');
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
+    // Spam name detection
+    const bannedNames = ["test", "test user", "abc", "xyz", "asdf", "demo", "sample"];
+    if (bannedNames.some(n => formData.name.toLowerCase().includes(n))) {
+      setSubmitStatus('error');
+      setErrorMessage('Please enter your real name.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Message length validation
+    if (formData.message && formData.message.trim().length < 15) {
+      setSubmitStatus('error');
+      setErrorMessage('Please provide more details about your booking (at least 15 characters).');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Rate limiting (10 minutes between submissions)
+    const lastSubmit = localStorage.getItem("lastBookingTime");
+    if (lastSubmit && Date.now() - parseInt(lastSubmit) < 10 * 60 * 1000) {
+      setSubmitStatus('error');
+      setErrorMessage('You can submit only one booking every 10 minutes. Please try again later.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate reCAPTCHA - Enhanced check
+    if (!window.grecaptcha) {
+      setSubmitStatus('error');
+      setErrorMessage('reCAPTCHA not loaded. Please refresh the page.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    const recaptchaResponse = window.grecaptcha.getResponse();
+    if (!recaptchaResponse || recaptchaResponse.length === 0) {
+      setSubmitStatus('error');
+      setErrorMessage('Please verify that you are not a robot.');
+      setIsSubmitting(false);
+      return;
+    }
+
     console.log('Submitting form with data:', formData);
 
     try {
@@ -50,7 +133,8 @@ export function Contact() {
         occasion: formData.occasion,
         venue: formData.venue || 'Not specified',
         message: formData.message || 'No additional message',
-        reply_to: formData.email
+        reply_to: formData.email,
+        'g-recaptcha-response': recaptchaResponse
       };
 
       console.log('Sending email with params:', templateParams);
@@ -73,6 +157,12 @@ export function Contact() {
         message: ''
       });
 
+      // Set rate limiting timestamp
+      localStorage.setItem("lastBookingTime", Date.now().toString());
+
+      // Reset reCAPTCHA
+      window.grecaptcha.reset();
+
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error: any) {
       console.error('Failed to send email - Full error:', error);
@@ -80,6 +170,9 @@ export function Contact() {
       console.error('Error status:', error?.status);
       setSubmitStatus('error');
       setErrorMessage(error?.text || error?.message || 'Unknown error occurred');
+      
+      // Reset reCAPTCHA on error
+      window.grecaptcha?.reset();
     } finally {
       setIsSubmitting(false);
     }
@@ -287,6 +380,11 @@ export function Contact() {
                   className="w-full px-4 py-3 bg-[var(--obsidian-black)] border-2 border-[var(--royal-gold)]/30 rounded-lg focus:outline-none focus:border-[var(--royal-gold)] transition-colors duration-300 resize-none text-[var(--velvet-ivory)]"
                   placeholder="Please provide the detailed schedule for all the events, including dates and timings"
                 />
+              </div>
+
+              {/* reCAPTCHA Widget */}
+              <div className="flex justify-center">
+                <div className="g-recaptcha" data-sitekey="6Lfx0F0sAAAAAFI6Dr7SNrbqwLQJuvpNcEEkCyu4"></div>
               </div>
 
               <button
