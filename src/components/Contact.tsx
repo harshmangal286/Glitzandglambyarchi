@@ -46,9 +46,17 @@ export function Contact() {
     setSubmitStatus('idle');
     setErrorMessage('');
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    // Enhanced email validation - no special characters except . _ - in local part
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formData.email)) {
+      setSubmitStatus('error');
+      setErrorMessage('Please enter a valid email address (only letters, numbers, dots, hyphens and underscores allowed).');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Additional email checks
+    if (formData.email.includes('..') || formData.email.startsWith('.') || formData.email.includes('@.')) {
       setSubmitStatus('error');
       setErrorMessage('Please enter a valid email address.');
       setIsSubmitting(false);
@@ -332,6 +340,8 @@ export function Contact() {
                   name="date"
                   value={formData.date}
                   onChange={handleChange}
+                  min={new Date().toISOString().split('T')[0]}
+                  max={new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]}
                   className="w-full px-4 py-3 bg-[var(--obsidian-black)] border-2 border-[var(--royal-gold)]/30 rounded-lg focus:outline-none focus:border-[var(--royal-gold)] transition-colors duration-300 text-[var(--velvet-ivory)]"
                 />
               </div>
